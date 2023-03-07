@@ -10,6 +10,8 @@
 	<name>git-demo-prj</name>
 
 	<properties>
+		<demo.username>ymdemo1</demo.username>
+		<demo.password>P@ssw0rd</demo.password>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -29,6 +31,21 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				  <configuration>
+				    <cloudHubDeployment>
+				      <uri>https://anypoint.mulesoft.com</uri>
+				      <muleVersion>4.4.0</muleVersion>
+				      <username>${demo.username}</username>
+				      <password>${demo.password}</password>
+				      <applicationName>git-demo-app</applicationName>
+				      <businessGroup>Salesforce.com\demo01</businessGroup>
+				      <environment>Sandbox</environment>
+				      <region>ap-northeast-1</region>
+				      <workers>1</workers>
+				      <workerType>MICRO</workerType>
+				    </cloudHubDeployment>
+				  </configuration>
+
 			</plugin>
 		</plugins>
 	</build>
